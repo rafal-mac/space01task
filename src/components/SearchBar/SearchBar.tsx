@@ -1,3 +1,4 @@
+import { css } from "@linaria/core";
 import { ChangeEvent } from "react";
 
 interface Props {
@@ -9,6 +10,7 @@ interface Props {
 export const SearchBar = ({ placeholder, value, onChange }: Props) => {
   return (
     <input
+      className={searchInput}
       type="text"
       placeholder={placeholder}
       value={value}
@@ -16,3 +18,11 @@ export const SearchBar = ({ placeholder, value, onChange }: Props) => {
     />
   );
 };
+
+const searchInput = css`
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+`;

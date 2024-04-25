@@ -1,3 +1,4 @@
+import { css } from "@linaria/core";
 import { useState } from "react";
 import "./App.css";
 import { Item } from "./components/Item/Item";
@@ -28,19 +29,49 @@ function App() {
     : filteredItems.slice(0, 5);
 
   return (
-    <div>
-      <SearchBar placeholder="Filter items by name..." value={filter} onChange={(e) => setFilter(e.target.value)} />
-      <Toggle
-        primaryText="show top 5"
-        secondaryText="show all"
-        value={showAllItems}
-        onClick={() => setShowAllItems(!showAllItems)}
-      />
-      {itemsToDisplay.map((item, i) => (
-        <Item {...item} key={i + item.name} />
-      ))}
+    <div className={container}>
+      <div className={header}>
+        <SearchBar
+          placeholder="Filter items by name..."
+          value={filter}
+          onChange={(e) => setFilter(e.target.value)}
+        />
+        <Toggle
+          primaryText="show top 5"
+          secondaryText="show all"
+          value={showAllItems}
+          onClick={() => setShowAllItems(!showAllItems)}
+        />
+      </div>
+      <ul className={itemList}>
+        {itemsToDisplay.map((item, i) => (
+          <Item {...item} key={i + item.name} />
+        ))}
+      </ul>
     </div>
   );
 }
+
+const container = css`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: sans-serif;
+`;
+
+const header = css`
+  display: flex;
+  gap: 10px;
+`;
+
+const itemList = css`
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  margin-bottom: auto;
+`;
 
 export default App;

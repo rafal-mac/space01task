@@ -1,3 +1,5 @@
+import { css } from "@linaria/core";
+
 interface Props {
   primaryText: string;
   secondaryText: string;
@@ -12,6 +14,24 @@ export const Toggle = ({
   onClick,
 }: Props) => {
   return (
-    <button onClick={onClick}>{value ? primaryText : secondaryText}</button>
+    <button className={toggle} onClick={onClick}>
+      {value ? primaryText : secondaryText}
+    </button>
   );
 };
+
+const toggle = css`
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+`;
