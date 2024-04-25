@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./App.css";
 import { Item } from "./components/Item/Item";
+import { SearchBar } from "./components/SearchBar/SearchBar";
+import { Toggle } from "./components/Toggle/Toggle";
 
 const items = [
   { name: "Item A", price: 125 },
@@ -17,7 +19,7 @@ function App() {
   const [showAllItems, setShowAllItems] = useState(false);
   const [filter, setFilter] = useState<string>("");
 
-  const sortedItems = items.sort((a, b) => a.price - b.price);
+  const sortedItems = [...items].sort((a, b) => a.price - b.price);
   const filteredItems = sortedItems.filter((item) =>
     item.name.toLowerCase().includes(filter.toLowerCase())
   );
@@ -27,21 +29,15 @@ function App() {
 
   return (
     <div>
-      <input
-        type="text"
-        placeholder="Filter by name..."
-        value={filter}
-        onChange={(e) => setFilter(e.target.value)}
+      <SearchBar placeholder="Filter items by name..." value={filter} onChange={(e) => setFilter(e.target.value)} />
+      <Toggle
+        primaryText="show top 5"
+        secondaryText="show all"
+        value={showAllItems}
+        onClick={() => setShowAllItems(!showAllItems)}
       />
-      <button
-        onClick={() => {
-          setShowAllItems(!showAllItems);
-        }}
-      >
-        {showAllItems ? "show cheapest" : "show all"}
-      </button>
       {itemsToDisplay.map((item, i) => (
-        <Item {...item} key={i} />
+        <Item {...item} key={i + item.name} />
       ))}
     </div>
   );
