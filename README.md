@@ -1,30 +1,16 @@
-# React + TypeScript + Vite
+# Space test 1
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Instructions
 
-Currently, two official plugins are available:
+### Please dont fork this repo when u provide your answer, dont give other applicants clues!
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+1. Render the cheapest 5 items on landing sorted by price
+2. User should beable to toggle between showing the cheapest 5 items and all items
+3. The user should be able to filter an item by name  
+4. Javascript or Typescript using functional components must be used to implement your solution
+5. The answer must be a full github public repo that can be cloned then installed and run by executing 'npm start' or 'yarn start'
+6. Add some 3rd party libraries if you feel like they are useful to deliver the requirement, show us your knowledge of the trends in modern development
+7. Show us your skills in styling your work, choose a framework or style from scratch, this can make a real difference
+8. Please show your knowledge around test driven development by writing tests and showing significant test coverage
+9. Pay attention to your naming conventions and patterns you are implementing
+10. There is no time limit, we obviously want to see your result as soon as possible but take your time, show us some quality
